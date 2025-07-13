@@ -5,6 +5,7 @@ from typing import Callable, Optional
 import nabairqualityd
 import nabbookd
 import nabclockd
+import nabguinead
 import nabiftttd
 import nabradio
 import nabsurprised
@@ -50,6 +51,7 @@ TAG_APPLICATIONS = {
     nabairqualityd.NABAZTAG_RFID_APPLICATION_ID: "nabairqualityd",  # 11
     nabradio.NABAZTAG_RFID_APPLICATION_ID: "nabradio",  # 12
     nabwebhook.NABAZTAG_RFID_APPLICATION_ID: "nabwebhook",  # 13
+    nabguinead.NABAZTAG_RFID_APPLICATION_ID: "nabguinead",  # 20
 }
 
 DEFAULT_RFID_TIMEOUT = 20.0

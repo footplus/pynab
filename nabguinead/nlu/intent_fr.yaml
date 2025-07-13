@@ -1,0 +1,9 @@
+---
+type: intent
+name: nabguinead/guinea
+utterances:
+  - cochon
+  - cochon d'inde
+  - fais le cochon d'inde
+  - tu me referais le cochon d'inde
+  - fais le cochon
