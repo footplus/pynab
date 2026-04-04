@@ -32,6 +32,9 @@ class NabIOHW(NabIO):
         self.button = ButtonGPIO(self.model)
 
     def has_sound_input(self):
+        return False
+        # Disabling sound input to avoid large model loading on
+        # swap-disabled Pi Zero.
         return (
             self.model != NabIOHW.MODEL_NONE
             and self.model != NabIOHW.MODEL_2018
