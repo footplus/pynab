@@ -1,6 +1,7 @@
 import asyncio
 import datetime
 import logging
+import random
 import subprocess
 import sys
 from typing import List
@@ -45,6 +46,7 @@ class NabClockd(nabservice.NabService):
         Both dates start with ISO 8601 strings and we can compare them
         lexically.
         """
+        return True
         if self.__synchronized_since_boot:
             return True
         first_run = False
@@ -72,11 +74,11 @@ class NabClockd(nabservice.NabService):
     async def chime(self, hour: int) -> None:
         now = datetime.datetime.now()
         expiration = now + datetime.timedelta(minutes=3)
-        # TODO: randomly play a message from all/
+        hour_str = "all" if random.random() < 1/12 else str(hour)
         packet = (
             '{"type":"message",'
             '"signature":{"audio":["nabclockd/signature.mp3"]},'
-            '"body":[{"audio":["nabclockd/' + str(hour) + '/*.mp3"]}],'
+            '"body":[{"audio":["nabclockd/' + hour_str + '/*.mp3"]}],'
             '"expiration":"' + expiration.isoformat() + '"}\r\n'
         )
         self.writer.write(packet.encode("utf8"))
